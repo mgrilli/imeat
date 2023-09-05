@@ -3,9 +3,11 @@ package br.com.tirolezo.imeatapi.controllers;
 import br.com.tirolezo.imeatapi.domain.product.Product;
 import br.com.tirolezo.imeatapi.domain.product.ProductDTO;
 import br.com.tirolezo.imeatapi.repositories.ProductRepository;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/products")
+@SecurityRequirement(name = "bearer-key")
 public class ProductController {
 
     private ProductRepository repository;
@@ -45,6 +48,7 @@ public class ProductController {
     }
 
     @PostMapping
+    @Transactional
     public ResponseEntity<?> saveProduct(@RequestBody @Valid Product product) {
         return ResponseEntity.ok(repository.save(product));
     }
