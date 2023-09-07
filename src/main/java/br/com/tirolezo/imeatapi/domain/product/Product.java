@@ -15,6 +15,7 @@ public class Product {
     private String prodName;
     private Integer amount;
     private BigDecimal price;
+    private String url;
 
     public Product() {
     }
@@ -49,5 +50,13 @@ public class Product {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

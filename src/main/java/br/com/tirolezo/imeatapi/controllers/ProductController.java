@@ -25,10 +25,9 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductDTO>> getAllProducts() {
-        List<ProductDTO> products = repository.findAll()
+    public ResponseEntity<List<Product>> getAllProducts() {
+        List<Product> products = repository.findAll()
                 .stream()
-                .map(ProductDTO::new)
                 .toList();
 
         if(products.isEmpty()) {
@@ -43,8 +42,7 @@ public class ProductController {
         if (!product.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found");
         }
-        var response = new ProductDTO(product.get());
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.OK).body(product);
     }
 
     @PostMapping
