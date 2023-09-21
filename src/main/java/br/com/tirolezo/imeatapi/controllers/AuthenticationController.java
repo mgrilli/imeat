@@ -9,6 +9,7 @@ import br.com.tirolezo.imeatapi.domain.user.User;
 import br.com.tirolezo.imeatapi.repositories.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -44,7 +45,7 @@ public class AuthenticationController {
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody @Valid RegisterDTO data) {
         if (repository.findByLogin(data.login()) != null) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body("User already exists!");
         }
 
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
@@ -52,6 +53,6 @@ public class AuthenticationController {
 
         repository.save(newUser);
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(HttpStatus.OK).body("User registered successfully!");
     }
 }
