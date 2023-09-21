@@ -48,7 +48,8 @@ public class ProductController {
     @PostMapping
     @Transactional
     public ResponseEntity<?> saveProduct(@RequestBody @Valid Product product) {
-        return ResponseEntity.ok(repository.save(product));
+        repository.save(product);
+        return ResponseEntity.status(HttpStatus.OK).body("Product registered successfully!");
     }
 
     @DeleteMapping("/{product-id}")

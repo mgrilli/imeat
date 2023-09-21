@@ -6,5 +6,6 @@ public record RegisterDTO(
         String login,
         @Email
         String email,
-        String password) {
+        String password,
+        UserRole role) {
 }

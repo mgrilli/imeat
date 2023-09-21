@@ -13,6 +13,7 @@ public class Product {
     private String id;
     @NotBlank
     private String prodName;
+    private String description;
     private Integer amount;
     private BigDecimal price;
     private String url;
@@ -30,6 +31,14 @@ public class Product {
 
     public String getProdName() {
         return prodName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setProdName(String prodName) {
