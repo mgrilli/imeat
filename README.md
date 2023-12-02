@@ -7,9 +7,7 @@ Este projeto é uma API construída em Java 17, Spring Boot, MongoDB como banco 
 
 Feito para o Startup One da FIAP, a IMeat API permite manipular registros de produtos a base de proteína sintética. 
 
-### Índice
-
----
+## Índice
 
 - [Instalação](#instalação)
 - [Uso](#uso)
@@ -17,9 +15,7 @@ Feito para o Startup One da FIAP, a IMeat API permite manipular registros de pro
 - [Endpoints da API](#endpoints-da-api)
 - [Banco de dados](#banco-de-dados)
 
-### Instalação
-
----
+## Instalação
 
 1. Clone o repositório:
 ```bash
@@ -29,9 +25,7 @@ git clone https://github.com/mgrilli/imeat.git
 2. Instale as dependências com Maven
 
 
-### Uso
-
----
+## Uso
 
 1. Inicie a aplicação com Maven
 ```bash
@@ -40,9 +34,7 @@ mvn spring-boot:run
 2. A API estará disponível em http://localhost:8080
 
 
-### Autenticação
-
----
+## Autenticação
 
 A IMeat API usa o Spring Security para o controle de autenticação, as seguintes roles estão disponíveis:
 
@@ -53,9 +45,7 @@ ADMIN = Usuário administrador que pode cadastrar e excluir produtos
 
 Para acessar os endpoints protegidos, providenciar as credenciais de autenticação do ADMIN no header requisição
 
-### Endpoints da API
-
----
+## Endpoints da API
 
 A API possui os seguintes endpoints:
 
@@ -161,8 +151,6 @@ DELETE /products/{id-product} - Exclui produto com id informado (Apenas ADMIN)
 ```
 
 
-### Banco de Dados
-
----
+## Banco de Dados
 
 Este projeto utiliza MongoDB como banco de dados
